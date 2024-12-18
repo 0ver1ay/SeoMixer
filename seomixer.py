@@ -1,8 +1,7 @@
-# Определяем пути к входному и выходному файлам
+
 input_file_path = 'E:/WORK/Python/SeoMixer/texts/marker.txt'
 output_file_path = 'E:/WORK/Python/SeoMixer/texts/out.txt'
 
-# Словарь для замены моделей автомобилей
 model_replacement = {
     'Сандеро': 'Sandero',
     'Трафик': 'Trafic',
@@ -21,17 +20,14 @@ model_replacement = {
 }
 
 
-# Функция для обработки строки
 def process_line(line):
     parts = line.split(' ')
     category = ' '.join(parts[:-2])  # категория запчастей
     brand = parts[-2]  # марка автомобиля
     model = parts[-1]  # модель автомобиля
 
-    # Список для хранения новых строк
     new_lines = []
 
-    # Оригинальная строка
     new_lines.append(line)
 
     # Заменяем модель на английскую, если она есть в словаре
@@ -60,7 +56,6 @@ def process_line(line):
     return new_lines
 
 
-# Чтение входного файла и запись в выходной файл
 with open(input_file_path, 'r', encoding='utf-8') as input_file, \
         open(output_file_path, 'w', encoding='utf-8') as output_file:
     seen_lines = set()  # Множество для хранения уникальных строк
