@@ -58,13 +58,13 @@ def process_line(line):
 
 with open(input_file_path, 'r', encoding='utf-8') as input_file, \
         open(output_file_path, 'w', encoding='utf-8') as output_file:
-    seen_lines = set()  # Множество для хранения уникальных строк
+    seen_lines = set()
     for line in input_file:
         line = line.strip()
         if line:  # пропускаем пустые строки
             processed_lines = process_line(line)
             for new_line in processed_lines:
-                if new_line not in seen_lines:  # Проверяем на уникальность
+                if new_line not in seen_lines:
                     seen_lines.add(new_line)
                     output_file.write(new_line + '\n')
 
